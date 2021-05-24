@@ -1,0 +1,65 @@
+<div class="ctn mg">
+    <div class="row">
+        <div class="col">
+            <div class="form-outline">
+                <label class="forn-label">User Id</label>
+                <input type="text" class="form-control" [(ngModel)]="empid">
+                <label class="forn-label">User Name</label>
+                <input type="text" class="form-control" [(ngModel)]="empname">
+                <label class="form-label" for="form8Example4">Email</label>
+                <input type="text" id="form8Example4" class="form-control" [(ngModel)]="email" />
+                <label class="form-label" for="form8Example5">password</label>
+                <input type="email" id="form8Example5" class="form-control" [(ngModel)]="emppass" />
+
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="d-flex justify-content-center"><button type="button" class="btn btn-primary" style="margin-right: 10px;margin-left: 40px;" (click)="save()">{{ isUpdate?'Edit':'Add'}}</button></div>
+    <hr>
+
+    <div class="d-flex justify-content-center"><button type="button" class="btn btn-warning" style="margin-right: 10px;margin-left: 40px;" (click)="reset()">Reset</button></div>
+</div>
+<hr>
+
+<div class="ctn ups">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Count no.</th>
+                        <th scope="col">Type User id</th>
+                        <th scope="col">Type User name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">password</th>
+                        <th scope="col">user image</th>
+                        <th scope="col">Do whatever Admin wants to do</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees; index as i">
+                        <th scope="row">{{i+1}}</th>
+
+
+                        <td>{{employee.employee_id}}</td>
+                        <td>{{employee.employee_name}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.password}}</td>
+                        <td><img class="imgset" [src]="employee.image64" /></td>
+                        <td>
+                            <button type="button" class="btn btn-primary" style="margin-left: 40px; " (click)="aks(employee)">Edit</button>
+                            <button type=" button " class="btn btn-danger " style="margin-left: 10px; " (click)="delete(employee)">Delete</button>
+                            <button type=" button " class="btn btn-success " style="margin-left: 10px; " (click)="view(employee)">View</button>
+                            <button type=" button " class="btn btn-success " style="margin-left: 10px; " (click)="blockuser(employee)">Block/unblock</button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
